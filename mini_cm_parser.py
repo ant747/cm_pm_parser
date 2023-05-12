@@ -15,7 +15,7 @@ from tinydb.storages import MemoryStorage
 
 logger = logging.getLogger(__name__)
 
-schema_filename = 'schema.csv'
+schema_filename = 'mini_cm_parser_schema.csv'
 path_to_object = deque()
 report = []
 
@@ -77,7 +77,7 @@ def get_tag_without_schema(elem):
 class ReportFilterer(object):
     def __init__(self, schema_filename, report):
         self.schema_filename = schema_filename
-        self.schema = self._read_hardcoded_schema()
+        self.schema = self._read_schema_from_file()
 
         self.db = TinyDB(storage=MemoryStorage)
         self._save_report_to_db(report)

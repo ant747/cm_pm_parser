@@ -32,3 +32,5 @@ object_type,object_id,attribute
 ^vsDataFeatureState$,^CXC4011958$,^featureState$
 ^vsDataFeatureState$,^CXC4011958$,^licenseState$
 ^vsDataFeatureState$,^CXC4011958$,^description$
+.*,.*,^earfcndl$
+.*,.*,^earfcnul$

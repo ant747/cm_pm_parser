@@ -1,0 +1,16 @@
+PM_NAME
+pmRrcConnLevSum
+pmRrcConnLevSamp
+pmCellDowntimeAuto
+pmCellDowntimeMan
+pmPdcpVolDlDrb
+pmPdcpVolUlDrb
+pmPdcpVolDlDrbLastTTI
+pmUeThpTimeDl
+pmUeThpTimeUl
+pmUeThpVolUl
+pmPrbUtilDl
+pmPrbUtilUl
+pmEndcCapableUeInitSetup
+pmConsumedEnergy
+pmCellSleepTime

@@ -122,7 +122,7 @@ def parse_data(file_name):
 def initialize():
     global filter_column
     logger.info(f"Fetching Schema...")
-    df = pd.read_csv("schema.csv")
+    df = pd.read_csv("mini_pm_parser_schema.csv")
     filter_column = [c for c in df.PM_NAME]
 
     xml_file_names = glob.glob(f'{sys.argv[1]}/**/*.xml', recursive=True)
