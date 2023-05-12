@@ -5,10 +5,15 @@ import glob
 import gzip
 from io import BytesIO
 from collections import deque
+import logging
+from logging.handlers import RotatingFileHandler
+import os
 
 from lxml import etree
 from tinydb import TinyDB, Query
 from tinydb.storages import MemoryStorage
+
+logger = logging.getLogger(__name__)
 
 schema_filename = 'schema.csv'
 path_to_object = deque()
@@ -26,6 +31,7 @@ report = []
 # 	    vsDataEUtranCellFDD
 
 # TODO: add multiprocessing
+# TODO: big files support
 # TODO: add expected value for each policy in schema
 # TODO: add policy id for each line of report
 # TODO: add filter for path_to_object
@@ -33,6 +39,34 @@ report = []
 # TODO: remove duplicates in schema on schema load
 # TODO: add app_name into schema and report
 # TODO: support filter of  shcema by app_name for script to collect specific app data only
+
+
+def init_my_logging():
+    """
+    Configuring logging for a SON-like appearance when running locally
+    """
+    logger.setLevel(logging.DEBUG)
+    log_file_name = os.path.splitext(os.path.realpath(__file__))[0] + '.log'
+    handler = RotatingFileHandler(log_file_name, maxBytes=10 * pow(1024, 2), backupCount=3)
+    log_format = "%(asctime)-15s [{}:%(name)s:%(lineno)s:%(funcName)s:%(levelname)s] %(message)s".format(
+        os.getpid())
+    handler.setLevel(logging.DEBUG)
+    try:
+        from colorlog import ColoredFormatter
+        formatter = ColoredFormatter(log_format)
+    except ImportError:
+        formatter = logging.Formatter(log_format)
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    # set a format which is simpler for console use
+    formatter = logging.Formatter('%(message)s')
+    # tell the handler to use this format
+    console.setFormatter(formatter)
+    # add the handler to the root logger
+    logger.addHandler(console)
 
 
 def get_tag_without_schema(elem):
@@ -118,42 +152,73 @@ class VsDataContainer(GeneralContainer):
                 tag = get_tag_without_schema(child)
                 self.attributes[tag] = child.text
 
-def get_report_lines(path_to_object):
-    report_lines = []
-    common_line_data = {}
-    common_line_data['path_to_object'] = ','.join([o.dc_path_node for o in path_to_object])
-    current_dc = path_to_object[-1]
-    common_line_data['object_type'] = current_dc.vs_data_type
-    common_line_data['object_id'] = current_dc.dc_id
 
-    for k, v in current_dc.attributes.items():
-        line = dict(common_line_data)
-        line['attribute'] = k
-        line['value'] = v
-        report_lines.append(line)
+class ReportHandler(object):
+    def __init__(self, xml_filename, chunk_size):
+        self.report_filename = f'{xml_filename}.csv'
+        self.chunk_size = chunk_size
+        self.report = []
+        self.fieldnames = ['path_to_object', 'ManagedElement', 'cell', 'object_type', 'object_id', 'attribute', 'value']
+        self.init_report_file()
 
-    return report_lines
+    def init_report_file(self):
+        with open(self.report_filename, 'w', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            writer.writeheader()
 
+    @property
+    def is_chunk_full(self):
+        return len(self.report) >= self.chunk_size
 
-def read_xml_content(xml_filename):
-    if xml_filename.endswith('.gz'):
-        with gzip.open(xml_filename, 'rb') as gz_file:
-            xml_content = gz_file.read()
-    else:
-        with open(xml_filename, 'rb') as xml_file:
-            xml_content = xml_file.read()
-    return xml_content
+    def save_report_chunk(self):
+        filterer = ReportFilterer(schema_filename, self.report)
+        filtered_report = filterer.apply_policy()
+        if filtered_report:
+            with open(self.report_filename, 'a', newline='') as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+                for line in filtered_report:
+                    writer.writerow(line)
+        logger.info(f'report contain {len(self.report)} lines. filtered_report contain {len(filtered_report)} '
+                    f'lines and they were added to {self.report_filename}')
+        self.report = []
+
+    def add_current_dc_to_report(self, path_to_object):
+        report_lines = self.get_report_lines(path_to_object)
+        self.report.extend(report_lines)
+
+    def get_report_lines(self, path_to_object):
+        report_lines = []
+        common_line_data = {}
+        common_line_data['path_to_object'] = ','.join([o.dc_path_node for o in path_to_object])
+        current_dc = path_to_object[-1]
+        mo = next((dc for dc in path_to_object if dc.vs_data_type == 'ManagedElement'), None)
+        common_line_data['ManagedElement'] = mo.dc_id if mo else None
+
+        cell = next((dc for dc in path_to_object if dc.vs_data_type in ('vsDataEUtranCellTDD', 'vsDataEUtranCellFDD')),
+                    None)
+        common_line_data['cell'] = cell.dc_id if cell else None
+
+        common_line_data['object_type'] = current_dc.vs_data_type
+        common_line_data['object_id'] = current_dc.dc_id
+
+        for k, v in current_dc.attributes.items():
+            line = dict(common_line_data)
+            line['attribute'] = k
+            line['value'] = v
+            report_lines.append(line)
+
+        return report_lines
 
 
 if __name__ == '__main__':
     assert len(sys.argv) > 1, 'Specify filename/mask for xml or xml.gz file(s) to proceed'
+    init_my_logging()
 
     for xml_filename in glob.glob(sys.argv[1]):
-        print(f'Working on {xml_filename}...')
-        xml_content = read_xml_content(xml_filename)
-        context = etree.iterparse(BytesIO(xml_content), events=("start", "end"))
+        logger.info(f'Working on {xml_filename}...')
+        report_handler = ReportHandler(xml_filename=xml_filename, chunk_size=pow(10, 5))
+        context = etree.iterparse(xml_filename, events=("start", "end"))
 
-        report = []
         for event, elem in context:
             tag = get_tag_without_schema(elem)
             if event == 'start':
@@ -172,19 +237,10 @@ if __name__ == '__main__':
             elif event == 'end':
                 if tag == current_dc.tag:
                     if current_dc.attributes:
-                        report_lines = get_report_lines(path_to_object)
-                        report.extend(report_lines)
+                        report_handler.add_current_dc_to_report(path_to_object)
+                        if report_handler.is_chunk_full:
+                            report_handler.save_report_chunk()
                     popped = path_to_object.pop()
                     # print(len(path_to_object), popped.dc_path_node)
 
-        filterer = ReportFilterer(schema_filename, report)
-        filtered_report = filterer.apply_policy()
-        report_filename = f'{xml_filename}.csv'
-        with open(report_filename, 'w', newline='') as csvfile:
-            fieldnames = ['path_to_object', 'object_type', 'object_id', 'attribute', 'value']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-            writer.writeheader()
-            for line in filtered_report:
-                writer.writerow(line)
-        print(f'Report saved to {report_filename}')
+        report_handler.save_report_chunk()
