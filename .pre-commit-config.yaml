@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pytest-check-id
+        name: pytest-check-name
+        stages: [commit]
+        types: [python]
+        entry: pytest
+        language: system

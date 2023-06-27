@@ -109,7 +109,7 @@ def parse_data(file_name):
             elif tag == "measValue":
                 path_to_object = elem.get("measObjLdn")
             elif tag == "r":
-                data[path_to_object + ":" + elem.get("p")] = elem.text
+                data[f"{path_to_object}:{elem.get('p')}"] = elem.text
         elif event == "end":
             if tag == "measInfo":
                 path.append(data)
