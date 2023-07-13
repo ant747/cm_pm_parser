@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE raml SYSTEM 'raml20.dtd'>
+<raml version="2.0" xmlns="raml20.xsd">
+  <cmData type="actual">
+    <header>
+      <log dateTime="2023-06-19T06:20:10.000-03:00" action="created" appInfo="ActualExporter">UIValues are used</log>
+    </header>
+    <managedObject class="PLMN" version="1.0" distName="PLMN-1" id="49877399"/>
+    <managedObject class="PLMN" version="1.0" distName="PLMN-BSCCE42" id="42780383"/>
+    <managedObject class="PLMN" version="1.0" distName="PLMN-BSCSM51" id="25671502"/>
+    <managedObject class="PLMN" version="1.0" distName="PLMN-PLMN" id="100000"/>
+    <managedObject class="OMS" version="WOMS16" distName="PLMN-PLMN/OMS-103" id="2749153">
+      <p name="name">OMS-103</p>
+    </managedObject>
+ <managedObject class="RNC" version="mcRNCFP20C" distName="PLMN-PLMN/RNC-298"
+ id="598327">
+      <p name="name">RNCMA02</p>
+      <p name="ActivePRNC">298</p>
+      <p name="AlarmSetforWCELBLINIT">Disabled</p>
+      <p name="CBCSourceIPAddress">0.0.0.0</p>
+      <p name="CSAttachDetachAllowed">IMSI attach/detach allowed</p>
+      <p name="ConnectionRetryCounter">15</p>
+      <p name="ConsCheckRuleMask">0</p>
+      <p name="DLBLERConfInterval">99%</p>
+      <p name="ExtendedULDLactivationTmr">0</p>
+      <p name="IMEIQuery">0</p>
+     <p name="lbpsStartTimeMinute">0</p>
+     <p name="lbpsDuration">360</p>
+      <p name="LCSSupportForAnchoring">Disabled</p>
+      <p name="LCSfunctionality">Disabled</p>
+      <p name="LTEPeriodicTriggerTimer">10</p>
+      <p name="MaxAMRCapacityErl">158200</p>
+     <p name="lbpsDayOfWeek">Sat</p>
+      <p name="MaxCarrierConnectivity">10000</p>
+      <p name="MaxIubPSThroughputMbps">24000</p>
+    <p name="MaxSignalingCapacity">20224</p>
+      <p name="MinRedEDPDCH">264</p>
+      <p name="N302">7</p>
+      <p name="N304">2</p>
+      <p name="N308">2</p>
+      <p name="OMSBackupIpAddress">10.119.218.236</p>
+      <p name="OMSIpAddress">10.119.218.236</p>
+      <p name="PageRep1stInterv">1100</p>
+      <p name="PageRep2ndInterv">2000</p>
+      <p name="RANAPprocInitWait">10</p>
+      <p name="RNCChangeOrigin">Element Manager originated configuration action</p>
+      <p name="RNCIPAddress">10.198.192.158</p>
+      <p name="RNCIPv6Address">::</p>
+      <p name="RNCName">RNCMA02</p>
+      <p name="RNCSWBuildId">R_QNCB.22.29.0_2.5.WR.mips.rmp</p>
+      <p name="RTservicesForPS">PS streaming service available</p>
+      <p name="RestrictionInterval">60</p>
+      <p name="RncClientTLSMode">Probing</p>
+      <list name="RncOptions">
+        <p>WCDMA - GSM Inter-System Handover</p>
+          <p>WCDMA - GSM Inter-System Handover</p>
+        <p>Nokia Multi-Operator RAN</p>
+        <p>IMSI Based Handover</p>
+        <p>Service Area Broadcast</p>
+        <p>Directed Emergency Call Inter-System Handover for US</p>
+        <p>WCDMA 1900</p>
+        <p>Flexi WCDMA BTS 850</p>
+        <p>Enhanced Priority Based Scheduling and Overload Control for NRT Traffic</p>
+        <p>Connectivity Support for 512 BTSs</p>
+        <p>Connectivity Support for 600 BTSs</p>
+        <p>Load and Service Based IS/IF Handover</p>
+        <p>UE Based A-GPS Using External Reference Network</p>
+        <p>Intelligent Directed Emergency Call Inter-system Handover for US</p>
+        <p>Network Based A-GPS Using External Reference Network</p>
+        <p>Power Balancing</p>
+        <p>Throughput Based Optimisation of the Packet Scheduler Algorithm</p>
+        <p>Flexible Upgrade of NRT DCH Data Rate</p>
+        <p>Support for Tandem/Transcoder Free Operation</p>
+        <p>AMR Codec Sets (12.2, 7.95, 5.90, 4.75) and (5.90, 4.75)</p>
+        <p>Wideband AMR Codec Set (12.65, 8.85, 6.6)</p>
+        <p>Radio Network Access Regulation Function</p>
+<p>WCDMA - GSM Inter-System Handover</p>
+        <p>Nokia Multi-Operator RAN</p>
+        <p>IMSI Based Handover</p>
+        <p>Service Area Broadcast</p>
+        <p>Directed Emergency Call Inter-System Handover for US</p>
+        <p>WCDMA 1900</p>
+        <p>Flexi WCDMA BTS 850</p>
+        <p>Enhanced Priority Based Scheduling and Overload Control for NRT Traffic</p>
+        <p>Connectivity Support for 512 BTSs</p>
+        <p>Connectivity Support for 600 BTSs</p>
+        <p>Load and Service Based IS/IF Handover</p>
+        <p>UE Based A-GPS Using External Reference Network</p>
+        <p>Intelligent Directed Emergency Call Inter-system Handover for US</p>
+        <p>Network Based A-GPS Using External Reference Network</p>
+        <p>Power Balancing</p>
+        <p>Throughput Based Optimisation of the Packet Scheduler Algorithm</p>
+        <p>Flexible Upgrade of NRT DCH Data Rate</p>
+        <p>Support for Tandem/Transcoder Free Operation</p>
+        <p>AMR Codec Sets (12.2, 7.95, 5.90, 4.75) and (5.90, 4.75)</p>
+        <p>Wideband AMR Codec Set (12.65, 8.85, 6.6)</p>
+        <p>Radio Network Access Regulation Function</p>
+  <p>HSUPA 5.8 Mbps</p>
+        <p>Continuous Packet Connectivity</p>
+        <p>24 kbps Paging Channel</p>
+        <p>HSPA 72 Users Per Cell</p>
+        <p>Common Channel Setup</p>
+        <p>MIMO</p>
+        <p>Dual-Cell HSDPA 42Mbps</p>
+        <p>LTE Interworking-Cell Reselection to LTE</p>
+        <p>LTE Interworking-ISHO from LTE</p>
+        <p>Multi-Band Load Balancing</p>
+        <p>HSPA 128 Users per Cell</p>
+        <p>High Speed Cell_FACH DL</p>
+        <p>Fast Dormancy Profiling</p>
+        <p>Smart LTE Layering</p>
+        <p>Mass Event Handler</p>
+        <p>Voice Call Priorization during High Traffic Load</p>
+        <p>High speed Cell_FACH Uplink</p>
+        <p>Data Session Profiling</p>
+        <p>RAB Act Fail and Access Fail due to UE After State Transition</p>
+        <p>Improvement to CS Call Setup Attempts Starting from Cell_FACH / Cell_PCH</p>
+         <managedObject class="RNC" version="mcRNCFP20C" distName="PLMN-PLMN/RNC-398" id="2634568">
+      <p name="name">RNCMA03</p>
+      <p name="ActivePRNC">398</p>
+      <p name="AlarmSetforWCELBLINIT">Disabled</p>
+      <p name="CBCSourceIPAddress">0.0.0.0</p>
+      <p name="CSAttachDetachAllowed">IMSI attach/detach allowed</p>
+      <p name="ConnectionRetryCounter">15</p>
+      <p name="ConsCheckRuleMask">0</p>
+      <p name="DLBLERConfInterval">99%</p>
+      <p name="ExtendedULDLactivationTmr">0</p>
+      <p name="IMEIQuery">0</p>
+      <p name="LCSSupportForAnchoring">Disabled</p>
+<p name="LCSfunctionality">Enabled</p>
+      <p name="LTEPeriodicTriggerTimer">20</p>
+      <p name="MaxAMRCapacityErl">199500</p>
+      <p name="MaxCarrierConnectivity">10000</p>
+      <p name="MaxIubPSThroughputMbps">24000</p>
+      <p name="MaxSignalingCapacity">20224</p>
+      <p name="MinRedEDPDCH">0</p>
+      <p name="N302">7</p>
+      <p name="N304">2</p>
+      <p name="N308">2</p>
+      <p name="OMSBackupIpAddress">10.119.218.236</p>
+      <p name="OMSIpAddress">10.119.218.236</p>
+      <p name="PageRep1stInterv">1100</p>
+      <p name="PageRep2ndInterv">2000</p>
+      <p name="RANAPprocInitWait">10</p>
+      <p name="RNCChangeOrigin">Element Manager originated configuration action</p>
+      <p name="RNCIPAddress">10.198.171.14</p>
+      <p name="RNCIPv6Address">::</p>
+      <p name="RNCName">RNCMA03</p>
+      <p name="RNCSWBuildId">R_QNCB.22.29.0_2.5.WR.mips.rmp</p>
+ <p name="RNCSWBuildId">R_QNCB.22.29.0_2.5.WR.mips.rmp</p>
+      <p name="RTservicesForPS">PS streaming service available</p>
+      <p name="RestrictionInterval">60</p>
+      <p name="RncClientTLSMode">Probing</p>
+      <list name="RncOptions">
+        <p>WCDMA - GSM Inter-System Handover</p>
+        <p>Nokia Multi-Operator RAN</p>
+        <p>IMSI Based Handover</p>
+        <p>Service Area Broadcast</p>
+        <p>Directed Emergency Call Inter-System Handover for US</p>
+        <p>WCDMA 1900</p>
+        <p>Flexi WCDMA BTS 850</p>
+        <p>Enhanced Priority Based Scheduling and Overload Control for NRT Traffic</p>
+        <p>Connectivity Support for 512 BTSs</p>
+        <p>Connectivity Support for 600 BTSs</p>
+        <p>Load and Service Based IS/IF Handover</p>
+        <p>UE Based A-GPS Using External Reference Network</p>
+        <p>Intelligent Directed Emergency Call Inter-system Handover for US</p>
+        <p>Network Based A-GPS Using External Reference Network</p>
+        <p>Power Balancing</p>
+        <p>Throughput Based Optimisation of the Packet Scheduler Algorithm</p> </managedObject>
+          <managedObject class="RNC" version="mcRNCFP20C" distName="PLMN-PLMN/RNC-491" id="2749160">
+      <p name="name">RNCPA04</p>
+      <p name="ActivePRNC">491</p>
+      <p name="AlarmSetforWCELBLINIT">Disabled</p>
+      <p name="CBCSourceIPAddress">0.0.0.0</p>
+      <p name="CSAttachDetachAllowed">IMSI attach/detach allowed</p>
+      <p name="ConnectionRetryCounter">15</p>
+      <p name="ConsCheckRuleMask">0</p>
+      <p name="DLBLERConfInterval">99%</p>
+ <p name="ExtendedULDLactivationTmr">0</p>
+      <p name="IMEIQuery">0</p>
+      <p name="LCSSupportForAnchoring">Disabled</p>
+      <p name="LCSfunctionality">Enabled</p>
+      <p name="LTEPeriodicTriggerTimer">10</p>
+      <p name="MaxAMRCapacityErl">35000</p>
+      <p name="MaxCarrierConnectivity">2600</p>
+      <p name="MaxIubPSThroughputMbps">5380</p>
+      <p name="MaxSignalingCapacity">3569</p>
+      <p name="MinRedEDPDCH">0</p>
+      <p name="N302">7</p>
+      <p name="N304">2</p>
+      <p name="N308">2</p>
+      <p name="OMSBackupIpAddress">10.119.218.238</p>
+      <p name="OMSIpAddress">10.119.218.236</p>
+      <p name="PageRep1stInterv">1100</p>
+      <p name="PageRep2ndInterv">2000</p>
+      <p name="RANAPprocInitWait">10</p>
+      <p name="RNCChangeOrigin">Element Manager originated configuration action</p>
+      <p name="RNCIPAddress">10.194.171.14</p><p name="RNCIPAddress">10.194.171.14</p>
+      <p name="RNCIPv6Address">::</p>
+      <p name="RNCName">RNCPA04</p>
+      <p name="RNCSWBuildId">R_QNCB.22.29.0_2.5.WR.mips.rmp</p>
+      <p name="RTservicesForPS">PS streaming service available</p>
+      <p name="RestrictionInterval">60</p>
+      <p name="RncClientTLSMode">Probing</p>
+      <list name="RncOptions">
+        <p>WCDMA - GSM Inter-System Handover</p>
+        <p>Nokia Multi-Operator RAN</p>
+        <p>IMSI Based Handover</p>
+        <p>Service Area Broadcast</p>
+        <p>Directed Emergency Call Inter-System Handover for US</p>
+        <p>WCDMA 1900</p>
+        <p>Flexi WCDMA BTS 850</p>
+        <p>Enhanced Priority Based Scheduling and Overload Control for NRT Traffic</p>
+        <p>Connectivity Support for 512 BTSs</p>
+        <p>Connectivity Support for 600 BTSs</p>
+        <p>Load and Service Based IS/IF Handover</p>
+        <p>UE Based A-GPS Using External Reference Network</p>
+        <p>Intelligent Directed Emergency Call Inter-system Handover for US</p>
+           <p>Network Based A-GPS Using External Reference Network</p>
+        <p>Power Balancing</p>
+        <p>Throughput Based Optimisation of the Packet Scheduler Algorithm</p>
+        <p>Flexible Upgrade of NRT DCH Data Rate</p>
+        <p>Support for Tandem/Transcoder Free Operation</p>
+        <p>AMR Codec Sets (12.2, 7.95, 5.90, 4.75) and (5.90, 4.75)</p>
+        <p>Wideband AMR Codec Set (12.65, 8.85, 6.6)</p>
+        <p>Radio Network Access Regulation Function</p>
+        <p>WCDMA BTS 1700 &amp; 1800</p>
+        <p>Flexi WCDMA BTS 1700/2100</p>
+        <p>Flexi WCDMA BTS 900</p>
+        <p>Automatic Definition of Neighbouring Cells</p>
+        <p>WB-AMR RAB Counters</p>
+        <p>Route Selection</p>
+        <p>16 kbit/s Return Channel DCH Data Rate Support for HSDPA</p>
+        <p>HSPA Layering for UEs in Common Channels</p>
+        <p>HSDPA 10 Codes</p>
+        <p>HSDPA 15 Codes</p>
+        <p>HSDPA 48 Users per Cell</p>
+        <p>HSDPA Code Multiplexing</p>
+        <p>HSDPA Mob, SHO, SCC and Soft/softer HO for DPCH</p>
+         <p>Extended Cell 35km for WCDMA BTS</p>
+        <p>HSUPA Basic 3 users per BTS</p>
+        <p>HSUPA Basic 12 users per BTS</p>
+        <p>HSUPA Basic 24 users per BTS</p>
+        <p>HSDPA 10 Mbps per User</p>
+        <p>HSUPA 2.0 Mbps</p>
+        <p>HSPA Inter-RNC Cell Change</p>
+        <p>RNC GUI for BTS Connection Resources</p>
+        <p>Capacity license for the number of carriers</p>
+        <p>HSDPA Congestion Control</p>
+        <p>SAS-Centric Iupc</p>
+        <p>LCS - Cell Coverage Based (RTT) with Geographical Coordinates</p>
+        <p>Detected Set Reporting and Measurements</p>
+        <p>Soft Handover Based on Detected Set Reporting</p>
+        <p>IP Based Iub</p>
+        <p>HSDPA 64 Users per Cell</p>
+        <p>HSUPA 60 Users per BTS</p>
+        <p>PS RAB Reconfiguration</p>
+        <p>QoS Aware HSPA Scheduling</p>
+        <p>Streaming QoS for HSPA</p>
+        <p>HSDPA 14 Mbps per User</p>
+        <p>HSPA Multi NRT RABs</p>
+        <p>HSDPA Inter-frequency Handover</p>
+           <p>24 kbps Paging Channel</p>
+        <p>HSPA 72 Users Per Cell</p>
+        <p>Common Channel Setup</p>
+        <p>MIMO</p>
+        <p>Dual-Cell HSDPA 42Mbps</p>
+        <p>LTE Interworking-Cell Reselection to LTE</p>
+        <p>LTE Interworking-ISHO from LTE</p>
+        <p>Multi-Band Load Balancing</p>
+        <p>HSPA 128 Users per Cell</p>
+        <p>High Speed Cell_FACH DL</p>
+        <p>Fast Dormancy Profiling</p>
+        <p>Smart LTE Layering</p>
+        <p>Mass Event Handler</p>
+        <p>Voice Call Priorization during High Traffic Load</p>
+        <p>High speed Cell_FACH Uplink</p>
+        <p>Data Session Profiling</p>
+        <p>HSUPA Compressed Mode for LTE and Inter-frequency Handover</p>
+        <p>Measurement based LTE Layering</p>
+        <p>Subscriber Trace</p>
+        <p>RACH capacity increase</p>
+        <p>mcRNC Signaling Capacity License</p>
+        <p>Device Detection</p>
+        <p>High Speed Cell_FACH Enhanced</p>
+          <p>Uplink Data Compression</p>
+        <p>Enhanced HSPA Congestion Control</p>
+        <p>Progressive WCDMA-LTE Layering</p>
+      </list>
+      <p name="SIB11_priority">4</p>
+      <p name="SIB18_priority">4</p>
+      <p name="SIB19Priority">1</p>
+      <p name="SIB1_priority">2</p>
+      <p name="SIB2_priority">2</p>
+      <p name="SIB3_priority">3</p>
+      <p name="SIB5_priority">3</p>
+      <p name="SecOMSIpAddress">10.119.218.238</p>
+      <p name="ServingOMS">secondary</p>
+      <p name="ServingOMSAdminSetting">automatic</p>
+              <p name="ToAWS_RT_DCH_tti10">25</p>
+      <p name="ToAWS_RT_DCH_tti20">25</p>
+      <p name="ToAWS_RT_DCH_tti40">25</p>
+      <p name="ToAWS_Speech">15</p>
+      <p name="TraceLCSHorizAccur">30</p>
+      <p name="TraceLCSPriority">normal</p>
+      <p name="TraceLCSVertAccur">70</p>
+      <p name="TraceLCSWaitPeriod">10</p>
+      <p name="ULBLERConfInterval">99%</p>
+      <p name="UL_DLcapacityReqWait">5.0</p>
+      <p name="WCELIdleAlarmTimeout">10</p>
+    </managedObject>
+
+
+
+
+
